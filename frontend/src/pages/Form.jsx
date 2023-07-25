@@ -6,7 +6,7 @@ export default function Form() {
   return (
     <div>
       <Sidebar />
-      <div className="lg:pl-[22rem] p-10">
+      <div className="lg:pl-[20rem] p-10">
         <Card title="" style="">
       
         </Card>

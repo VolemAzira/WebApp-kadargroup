@@ -11,7 +11,7 @@ export default function Sidebar() {
   return (
     <div>
       <div className="hidden lg:block">
-        <div className="p-10 bg-neutral-800 flex flex-col justify-between w-80 h-screen text-neutral-50 shadow-xl fixed z-50">
+        <div className="p-10 bg-neutral-800 flex flex-col justify-between w-72 h-screen text-neutral-50 shadow-xl fixed z-50">
           <div>
             <img src={Logo} alt="" className="rounded-lg mb-5" />
             <div className="flex flex-col gap-3">
