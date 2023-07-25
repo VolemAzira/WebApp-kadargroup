@@ -1,6 +1,6 @@
 import React from "react";
-import Sidebar from "../components/Elements/Sidebar";
-import Card from "../components/Elements/Card";
+import Sidebar from "../components/Sidebar";
+import Card from "../components/Card";
 
 export default function Dashboard() {
   return (

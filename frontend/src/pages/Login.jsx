@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import axios from "axios";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
-import Input from "../components/Elements/Input";
+import Input from "../components/Input";
 import Logo from "/Logo.png";
 
 export default function Login() {
