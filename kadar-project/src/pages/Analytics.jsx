@@ -6,20 +6,12 @@ export default function Analytics() {
   return (
     <div>
       <Sidebar />
-      <div className="lg:pl-[22rem] p-10">
-        <Card style="flex">
-          <div>
-            <h3>Total Sales</h3>
-            <h1>$65,024</h1>
-          </div>
-          <div>
-            <svg className="w-3">
-              <circle cx="38" cy="38" r="36"></circle>
-            </svg>
-            <div className="relative rounded-[50%]">
-              <p>+81%</p>
-            </div>
-          </div>
+      <div className="lg:pl-[22rem] p-5">
+      <Card title="Analytics" style="h-screen">
+          <iframe
+            src="https://lookerstudio.google.com/reporting/e3822fc4-1da1-48fe-8b6e-19450025da0a/page/p_d7whwn6m4c"
+            className="w-full h-full"
+          ></iframe>
         </Card>
       </div>
     </div>

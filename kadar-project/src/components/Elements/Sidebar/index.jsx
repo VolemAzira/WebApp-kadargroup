@@ -11,9 +11,9 @@ export default function Sidebar() {
   return (
     <div>
       <AiOutlineMenu
-        size={30}
+        size={50}
         onClick={handleNav}
-        className="absolute top-4 right-4 z-[99] lg:hidden"
+        className="fixed top-4 right-4 z-[99] lg:hidden bg-white rounded p-2 cursor-pointer"
       />
       {nav ? (
         <div className="p-10 bg-neutral-800 flex flex-col justify-between items-center w-screen h-screen text-neutral-50 shadow-xl fixed z-50">
