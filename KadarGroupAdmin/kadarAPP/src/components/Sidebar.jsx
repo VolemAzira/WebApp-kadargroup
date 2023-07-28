@@ -15,7 +15,7 @@ export default function Sidebar() {
           <div>
             <img src={Logo} alt="" className="rounded-lg mb-5" />
             <div className="flex flex-col gap-3">
-              <Link to ="/home" className="text-xl p-3 m-2 hover:translate-x-2 hover:bg-orange-600/90 hover:rounded-md transition-transform duration-300">HOME</Link>
+              <Link to ="/" className="text-xl p-3 m-2 hover:translate-x-2 hover:bg-orange-600/90 hover:rounded-md transition-transform duration-300">HOME</Link>
               <Link to ="/form" className="text-xl p-3 m-2 hover:translate-x-2 hover:bg-orange-600/90 hover:rounded-md transition-transform duration-300">FORM</Link>
               <Link to ="/dashboard" className="text-xl p-3 m-2 hover:translate-x-2 hover:bg-orange-600/90 hover:rounded-md transition-transform duration-300">DASHBOARD</Link>
               <Link to ="/analytics" className="text-xl p-3 m-2 hover:translate-x-2 hover:bg-orange-600/90 hover:rounded-md transition-transform duration-300">ANALYTICS</Link>
@@ -38,7 +38,7 @@ export default function Sidebar() {
           <div>
             <img src={Logo} alt="" className="rounded-lg mb-5 w-[25rem]" />
             <div className="flex flex-col gap-3">
-              <Link to ="/home" className="text-xl p-3 m-2 hover:translate-x-2 hover:bg-orange-600/90 hover:rounded-md transition-transform duration-300">HOME</Link>
+              <Link to ="/" className="text-xl p-3 m-2 hover:translate-x-2 hover:bg-orange-600/90 hover:rounded-md transition-transform duration-300">HOME</Link>
               <Link to ="/form" className="text-xl p-3 m-2 hover:translate-x-2 hover:bg-orange-600/90 hover:rounded-md transition-transform duration-300">FORM</Link>
               <Link to ="/dashboard" className="text-xl p-3 m-2 hover:translate-x-2 hover:bg-orange-600/90 hover:rounded-md transition-transform duration-300">DASHBOARD</Link>
               <Link to ="/analytics" className="text-xl p-3 m-2 hover:translate-x-2 hover:bg-orange-600/90 hover:rounded-md transition-transform duration-300">ANALYTICS</Link>

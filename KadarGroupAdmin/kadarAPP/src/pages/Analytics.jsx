@@ -1,15 +1,15 @@
 import React from "react";
+
 import Sidebar from "../components/Sidebar";
 import Card from "../components/Card";
 
-export default function Dashboard() {
+export default function Analytics() {
   return (
-    <div className="h-screen">
-      <Sidebar />
+    <div>
       <div className="lg:pl-[20rem] p-5">
-        <Card title="Dashboard" style="h-screen">
+      <Card title="Analytics" style="h-screen">
           <iframe
-            src="https://docs.google.com/spreadsheets/d/1KSctOeulcsmDIDd8PnmaTysllh7ckDurCgr1WHzAWCU/edit#gid=1992696286"
+            src="https://lookerstudio.google.com/embed/reporting/e3822fc4-1da1-48fe-8b6e-19450025da0a/page/p_d7whwn6m4c"
             className="w-full h-full"
           ></iframe>
         </Card>
