@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 import Input from "../components/Input";
-import Logo from "/Logo.png";
+import Logo from "../assets/logo.png";
 
 export default function Login() {
   const [showPassword, setShowPassword] = useState(false);
@@ -15,7 +15,7 @@ export default function Login() {
   return (
     <div className="flex flex-col justify-center items-center h-screen gap-5">
       <form
-        action="/home"
+        action="/"
         className="w-[25rem] flex flex-col justify-center gap-5 p-10 rounded-2xl bg-neutral-800 text-white shadow-2xl"
       >
         <img src={Logo} alt="Logo" />

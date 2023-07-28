@@ -22,6 +22,10 @@ const App = () => {
           element: <Home />,
         },
         {
+          path: "/home",
+          element: <Home />,
+        },
+        {
           path: "/form",
           element: <Form />,
         },
@@ -33,21 +37,21 @@ const App = () => {
           path: "/analytics",
           element: <Analytics />,
         },
-        {
-          path: "/login",
-          element: <Login />,
-        },
       ],
     },
     {
       path: "/register",
       element: <Register />,
     },
+    {
+      path: "/login",
+      element: <Login />,
+    },
   ]);
   return (
-    <div>
+    <>
       <RouterProvider router={router} />
-    </div>
+    </>
   );
 };
 
