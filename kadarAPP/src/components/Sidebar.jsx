@@ -9,12 +9,14 @@ import {
   AiOutlineForm,
   AiOutlineDashboard,
   AiOutlineLogout,
+  AiOutlineArrowDown,
 } from "react-icons/ai";
 
 import Logo from "../assets/logo.png";
 
 export default function Sidebar() {
-  const [open, setOpen] = useState(false); // Updated initial value to false
+  const [open, setOpen] = useState(false);
+  const [showDropdown, setShowDropdown] = useState(false); // State for dropdown visibility
 
   const { user, logout } = UserAuth();
   const navigate = useNavigate();
@@ -27,6 +29,10 @@ export default function Sidebar() {
     } catch (e) {
       console.log(e.message);
     }
+  };
+
+  const handleAnalyticsClick = () => {
+    setShowDropdown(!showDropdown); // Toggle the visibility of the dropdown
   };
 
   return (
@@ -44,7 +50,11 @@ export default function Sidebar() {
           size={30}
         />
 
-        <div className={`flex flex-col overflow-hidden text-white ${open ? "" : "hidden"}`}>
+        <div
+          className={`flex flex-col overflow-hidden text-white ${
+            open ? "" : "hidden"
+          }`}
+        >
           <img src={Logo} alt="logo" />
           <br />
           {open && (
@@ -64,19 +74,42 @@ export default function Sidebar() {
                 FORM
               </Link>
               <Link
-                to="/dashboard"
-                className="flex items-center text-xl p-3 m-2 hover:translate-x-2 hover:bg-orange-600/90 hover:rounded-md transition-transform duration-300"
+                className="flex items-center justify-between text-xl p-3 m-2 hover:translate-x-2 hover:bg-orange-600/90 hover:rounded-md transition-transform duration-300"
+                onClick={handleAnalyticsClick}
               >
-                <AiOutlineDashboard className="mr-2" />
-                DASHBOARD
+                <div className="flex items-center">
+                  <AiOutlineDashboard className="mr-2" />
+                  DASHBOARD
+                </div>
+                <AiOutlineArrowDown className="ml-2" />
               </Link>
-              <Link
-                to="/analytics"
-                className="flex items-center text-xl p-3 m-2 hover:translate-x-2 hover:bg-orange-600/90 hover:rounded-md transition-transform duration-300"
-              >
+              {/* Add the dropdown items */}
+              {showDropdown && (
+                <div className="ml-8 flex flex-col">
+                  <Link
+                    to="/analytics"
+                    className="text-lg py-2 hover:text-orange-600/90 transition-colors"
+                  >
+                    Item 1
+                  </Link>
+                  <Link
+                    to="/analytics/2"
+                    className="text-lg py-2 hover:text-orange-600/90 transition-colors"
+                  >
+                    Item 2
+                  </Link>
+                  <Link
+                    to="/analytics/3"
+                    className="text-lg py-2 hover:text-orange-600/90 transition-colors"
+                  >
+                    Item 3
+                  </Link>
+                </div>
+              )}
+              <div className="cursor-pointer flex items-center text-xl p-3 m-2 hover:translate-x-2 hover:bg-orange-600/90 hover:rounded-md transition-transform duration-300">
                 <MdOutlineAnalytics className="mr-2" />
                 ANALYTICS
-              </Link>
+              </div>
             </>
           )}
         </div>
