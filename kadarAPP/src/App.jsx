@@ -1,8 +1,10 @@
 import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ErrorPage from "./pages/404";
+import { AuthContextProvider } from "./context/AuthContext";
 
 import Root from "./pages/Root";
+import ProtectedRoute from "./pages/ProtectedRoute";
 import Home from "./pages/Home";
 import Form from "./pages/Form";
 import Dashboard from "./pages/Dashboard";
@@ -19,23 +21,43 @@ const App = () => {
       children: [
         {
           path: "/",
-          element: <Home />,
+          element: (
+            <ProtectedRoute>
+              <Home />
+            </ProtectedRoute>
+          ),
         },
         {
           path: "/home",
-          element: <Home />,
+          element: (
+            <ProtectedRoute>
+              <Home />
+            </ProtectedRoute>
+          ),
         },
         {
           path: "/form",
-          element: <Form />,
+          element: (
+            <ProtectedRoute>
+              <Form />
+            </ProtectedRoute>
+          ),
         },
         {
           path: "/dashboard",
-          element: <Dashboard />,
+          element: (
+            <ProtectedRoute>
+              <Dashboard />
+            </ProtectedRoute>
+          ),
         },
         {
           path: "/analytics",
-          element: <Analytics />,
+          element: (
+            <ProtectedRoute>
+              <Analytics />
+            </ProtectedRoute>
+          ),
         },
       ],
     },
@@ -50,7 +72,9 @@ const App = () => {
   ]);
   return (
     <>
-      <RouterProvider router={router} />
+      <AuthContextProvider>
+        <RouterProvider router={router} />
+      </AuthContextProvider>
     </>
   );
 };
