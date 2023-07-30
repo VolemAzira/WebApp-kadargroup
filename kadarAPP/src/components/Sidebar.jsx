@@ -31,7 +31,7 @@ export default function Sidebar() {
     }
   };
 
-  const handleAnalyticsClick = () => {
+  const handleDashboardClick = () => {
     setShowDropdown(!showDropdown); // Toggle the visibility of the dropdown
   };
 
@@ -43,8 +43,8 @@ export default function Sidebar() {
         } bg-neutral-800 h-screen p-5 pt-8 duration-300 shadow-lg shadow-black flex flex-col justify-between transition-all`}
       >
         <AiOutlineMenu
-          className={`absolute cursor-pointer -right-3 top-14 border-black bg-white border-2 ${
-            open ? "animate-bounce transform rotate-180" : ""
+          className={`absolute cursor-pointer -right-3 top-14 border-black bg-white border-2 animate-bounce ${
+            open ? "animate-none transform rotate-180" : ""
           }`}
           onClick={() => setOpen(!open)}
           size={30}
@@ -73,43 +73,47 @@ export default function Sidebar() {
                 <AiOutlineForm className="mr-2" />
                 FORM
               </Link>
-              <Link
+              <div
                 className="flex items-center justify-between text-xl p-3 m-2 hover:translate-x-2 hover:bg-orange-600/90 hover:rounded-md transition-transform duration-300"
-                onClick={handleAnalyticsClick}
+                onClick={handleDashboardClick}
               >
                 <div className="flex items-center">
                   <AiOutlineDashboard className="mr-2" />
                   DASHBOARD
                 </div>
                 <AiOutlineArrowDown className="ml-2" />
-              </Link>
+              </div>
               {/* Add the dropdown items */}
               {showDropdown && (
                 <div className="ml-8 flex flex-col">
                   <Link
-                    to="/analytics"
+                    to="/dashboard"
                     className="text-lg py-2 hover:text-orange-600/90 transition-colors"
                   >
                     Item 1
                   </Link>
                   <Link
-                    to="/analytics/2"
+                    to="/dashboard/2"
                     className="text-lg py-2 hover:text-orange-600/90 transition-colors"
                   >
                     Item 2
                   </Link>
                   <Link
-                    to="/analytics/3"
+                    to="/dashboard/3"
                     className="text-lg py-2 hover:text-orange-600/90 transition-colors"
                   >
                     Item 3
                   </Link>
                 </div>
               )}
-              <div className="cursor-pointer flex items-center text-xl p-3 m-2 hover:translate-x-2 hover:bg-orange-600/90 hover:rounded-md transition-transform duration-300">
+
+              <Link
+                to="/analytics"
+                className="flex items-center text-xl p-3 m-2 hover:translate-x-2 hover:bg-orange-600/90 hover:rounded-md transition-transform duration-300"
+              >
                 <MdOutlineAnalytics className="mr-2" />
                 ANALYTICS
-              </div>
+              </Link>
             </>
           )}
         </div>
