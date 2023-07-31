@@ -40,7 +40,7 @@ export default function Sidebar() {
       <div
         className={`${
           open ? "w-72" : "w-10"
-        } bg-neutral-800 h-screen p-5 pt-8 duration-300 shadow-lg shadow-black flex flex-col justify-between transition-all`}
+        } bg-neutral-800 h-screen p-5 pt-8 duration-300 shadow-lg shadow-black flex flex-col justify-between transition-all overflow-y-auto`}
       >
         <AiOutlineMenu
           className={`absolute cursor-pointer -right-3 top-14 border-black bg-white border-2 animate-bounce ${
@@ -50,11 +50,7 @@ export default function Sidebar() {
           size={30}
         />
 
-        <div
-          className={`flex flex-col overflow-hidden text-white ${
-            open ? "" : "hidden"
-          }`}
-        >
+        <div className={`flex flex-col text-white ${open ? "" : "hidden"}`}>
           <img src={Logo} alt="logo" />
           <br />
           {open && (
@@ -117,6 +113,7 @@ export default function Sidebar() {
             </>
           )}
         </div>
+
         <div className={`flex flex-col text-white ${open ? "" : "hidden"}`}>
           {open && (
             <button

@@ -33,7 +33,8 @@ export default function Register() {
 
     try {
       await createUser(email, password);
-      navigate("/");
+      navigate("/login");
+      alert("Account has been created")
     } catch (e) {
       setError(e.message);
       console.log(e.message);
@@ -109,7 +110,7 @@ export default function Register() {
         </div>
 
         {error && (
-          <p className="text-red-600 text-right font-bold text-sm">{error}</p>
+          <p className="text-red-600 font-bold text-sm">{error}</p>
         )}
 
         <button
