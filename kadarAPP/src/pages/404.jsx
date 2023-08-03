@@ -24,7 +24,7 @@ export default function ErrorPage() {
             <Button style="m-5">
               <Link to="/">Go home</Link>
             </Button>
-            <p>&copy;2023 | @volemazira</p>
+            <p>Copyright &copy; 2023 | @volemazira</p>
           </div>
         </div>
       </div>
