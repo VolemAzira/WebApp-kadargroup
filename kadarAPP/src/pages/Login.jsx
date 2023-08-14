@@ -47,6 +47,7 @@ export default function Login() {
   };
 
   return (
+    
     <div className="flex flex-col justify-center items-center h-screen gap-5">
       <form
         className="w-[25rem] flex flex-col justify-center gap-5 p-10 rounded-2xl bg-neutral-800 text-white shadow-2xl"
