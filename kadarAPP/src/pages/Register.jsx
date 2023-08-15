@@ -81,7 +81,10 @@ export default function Register() {
             type={showPassword ? "text" : "password"}
             placeholder="Password"
             value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            onChange={(e) => {
+              setPassword(e.target.value);
+              setError("");
+            }}
           />
           <button
             type="button"
@@ -98,7 +101,10 @@ export default function Register() {
             type={showPassword ? "text" : "password"}
             placeholder="Confirm Password"
             value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
+            onChange={(e) => {
+              setConfirmPassword(e.target.value);
+              setError("");
+            }}
           />
           <button
             type="button"
@@ -109,7 +115,7 @@ export default function Register() {
           </button>
         </div>
 
-        {error && <p className="text-red-600 font-bold text-sm">{error}</p>}
+        {error && <p className="text-red-500">{error}</p>}
 
         <button
           type="submit"

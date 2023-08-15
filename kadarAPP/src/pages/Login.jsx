@@ -12,19 +12,39 @@ import Logo from "../assets/logo.png";
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
+  const [emailError, setEmailError] = useState("");
+  const [passwordError, setPasswordError] = useState("");
+  const [generalError, setGeneralError] = useState("");
   const navigate = useNavigate();
   const { signIn } = UserAuth();
 
   const handeleLogin = async (e) => {
     e.preventDefault();
-    setError("");
+    setEmailError("");
+    setPasswordError("");
+    setGeneralError("");
+
+    if (!email) {
+      setEmailError("Email is required");
+      return;
+    }
+
+    if (!password) {
+      setPasswordError("Password is required");
+      return;
+    }
+
     try {
       await signIn(email, password);
       navigate("/");
     } catch (e) {
-      setError(e.message);
-      console.log(e.message);
+      if (e.code === "auth/user-not-found") {
+        setEmailError("Email is not registered");
+      } else if (e.code === "auth/wrong-password") {
+        setPasswordError("Incorrect password");
+      } else {
+        setGeneralError(e.message);
+      }
     }
   };
 
@@ -47,7 +67,6 @@ export default function Login() {
   };
 
   return (
-    
     <div className="flex flex-col justify-center items-center h-screen gap-5">
       <form
         className="w-[25rem] flex flex-col justify-center gap-5 p-10 rounded-2xl bg-neutral-800 text-white shadow-2xl"
@@ -60,8 +79,13 @@ export default function Login() {
           id="username"
           placeholder="Email"
           value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={(e) => {
+            setEmail(e.target.value);
+            setEmailError(""); // Clear email error when input changes
+          }}
         />
+        {emailError && <p className="text-red-500">{emailError}</p>}
+
         <div className="relative">
           <Input
             type={showPassword ? "text" : "password"}
@@ -69,7 +93,10 @@ export default function Login() {
             placeholder="Password"
             style="w-full"
             value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            onChange={(e) => {
+              setPassword(e.target.value);
+              setPasswordError(""); // Clear password error when input changes
+            }}
           />
           <button
             type="button"
@@ -79,6 +106,7 @@ export default function Login() {
             {showPassword ? <FaEyeSlash /> : <FaEye />}
           </button>
         </div>
+        {passwordError && <p className="text-red-500">{passwordError}</p>}
 
         <button
           className="p-2 bg-orange-500 text-white rounded-full hover:bg-zinc-500 transition duration-200"
