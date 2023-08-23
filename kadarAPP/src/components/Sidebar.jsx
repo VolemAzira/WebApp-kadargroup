@@ -86,7 +86,7 @@ export default function Sidebar() {
                     to="/dashboard"
                     className="text-lg py-2 hover:text-orange-600/90 transition-colors"
                   >
-                    Item 1
+                    Denah Rumah Pungolaka
                   </Link>
                   <Link
                     to="/dashboard/2"
